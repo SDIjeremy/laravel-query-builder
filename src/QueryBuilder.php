@@ -13,6 +13,11 @@ use Spatie\QueryBuilder\Concerns\AddsIncludesToQuery;
 use Spatie\QueryBuilder\Concerns\FiltersQuery;
 use Spatie\QueryBuilder\Concerns\SortsQuery;
 use Spatie\QueryBuilder\Exceptions\InvalidSubject;
+use Spatie\QueryBuilder\Concerns\AppendsAttributesToResults;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Contracts\Pagination\CursorPaginator;
 
 /**
  * @mixin EloquentBuilder
@@ -23,6 +28,7 @@ class QueryBuilder implements ArrayAccess
     use SortsQuery;
     use AddsIncludesToQuery;
     use AddsFieldsToQuery;
+    use AppendsAttributesToResults;
     use ForwardsCalls;
 
     /** @var \Spatie\QueryBuilder\QueryBuilderRequest */
@@ -110,6 +116,18 @@ class QueryBuilder implements ArrayAccess
          */
         if ($result === $this->subject) {
             return $this;
+        }
+
+        if ($result instanceof Model) {
+            $this->addAppendsToResults(collect([$result]));
+        }
+
+        if ($result instanceof Collection) {
+            $this->addAppendsToResults($result);
+        }
+
+        if ($result instanceof LengthAwarePaginator || $result instanceof Paginator || $result instanceof CursorPaginator) {
+            $this->addAppendsToResults(collect($result->items()));
         }
 
         return $result;
