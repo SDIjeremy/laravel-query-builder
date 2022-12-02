@@ -10,6 +10,9 @@ trait AppendsAttributesToResults
 {
     /** @var \Illuminate\Support\Collection */
     protected $allowedAppends;
+    
+    /** @var \Illuminate\Support\Collection */
+    protected $withAppends;
 
     public function allowedAppends($appends): self
     {
@@ -21,18 +24,27 @@ trait AppendsAttributesToResults
 
         return $this;
     }
+    
+    public function withAppends($appends): self
+    {
+        $appends = is_array($appends) ? $appends : func_get_args();
+
+        $this->withAppends = collect($appends);
+
+        return $this;
+    }
 
     protected function addAppendsToResults(Collection $results)
     {
         return $results->each(function (Model $result) {
-            return $result->append($this->request->appends()->toArray());
+            return $result->append($this->request->appends()->merge($this->withAppends ?? [])->toArray());
         });
     }
 
     protected function addAppendsToCursor($results)
     {
         return $results->each(function (Model $result) {
-            return $result->append($this->request->appends()->toArray());
+            return $result->append($this->request->appends()->merge($this->withAppends ?? [])->toArray());
         });
     }
 
