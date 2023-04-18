@@ -10,7 +10,7 @@ trait AppendsAttributesToResults
 {
     /** @var \Illuminate\Support\Collection */
     protected $allowedAppends;
-    
+
     /** @var \Illuminate\Support\Collection */
     protected $withAppends;
 
@@ -24,7 +24,7 @@ trait AppendsAttributesToResults
 
         return $this;
     }
-    
+
     public function withAppends($appends): self
     {
         $appends = is_array($appends) ? $appends : func_get_args();

@@ -3,21 +3,21 @@
 namespace Spatie\QueryBuilder;
 
 use ArrayAccess;
+use Illuminate\Contracts\Pagination\CursorPaginator;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Traits\ForwardsCalls;
 use Spatie\QueryBuilder\Concerns\AddsFieldsToQuery;
 use Spatie\QueryBuilder\Concerns\AddsIncludesToQuery;
+use Spatie\QueryBuilder\Concerns\AppendsAttributesToResults;
 use Spatie\QueryBuilder\Concerns\FiltersQuery;
 use Spatie\QueryBuilder\Concerns\SortsQuery;
 use Spatie\QueryBuilder\Exceptions\InvalidSubject;
-use Spatie\QueryBuilder\Concerns\AppendsAttributesToResults;
-use Illuminate\Support\Collection;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Contracts\Pagination\CursorPaginator;
 
 /**
  * @mixin EloquentBuilder

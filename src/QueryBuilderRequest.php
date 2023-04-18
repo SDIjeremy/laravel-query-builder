@@ -140,7 +140,7 @@ class QueryBuilderRequest extends Request
         if (is_array($key)) {
             $key = array_filter($key, fn ($key) => $this->has($key))[0] ?? $key[0] ?? null;
         }
-        
+
         if (config('query-builder.request_data_source') === 'body') {
             return $this->input($key, $default);
         }
