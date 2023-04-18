@@ -138,7 +138,7 @@ class QueryBuilderRequest extends Request
     protected function getRequestData(string|array|null $key = null, $default = null)
     {
         if (is_array($key)) {
-            $key = array_filter($key, fn ($key) => $this->has($key))[0] ?? $key[0] ?? null;
+            $key = array_values(array_filter($key, fn ($key) => $this->has($key)))[0] ?? $key[0] ?? null;
         }
 
         if (config('query-builder.request_data_source') === 'body') {
