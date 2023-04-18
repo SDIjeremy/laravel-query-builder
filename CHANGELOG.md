@@ -2,6 +2,51 @@
 
 All notable changes to `laravel-query-builder` will be documented in this file
 
+## 5.2.0 - 2023-02-24
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/spatie/laravel-query-builder/pull/843
+- Update sorting.md by @shukriYusof in https://github.com/spatie/laravel-query-builder/pull/846
+- Update custom sorts link in documentation by @turpoint in https://github.com/spatie/laravel-query-builder/pull/844
+- Add config to disable InvalidSortQuery exception by @bohemima in https://github.com/spatie/laravel-query-builder/pull/830
+
+### New Contributors
+
+- @shukriYusof made their first contribution in https://github.com/spatie/laravel-query-builder/pull/846
+- @turpoint made their first contribution in https://github.com/spatie/laravel-query-builder/pull/844
+- @bohemima made their first contribution in https://github.com/spatie/laravel-query-builder/pull/830
+
+**Full Changelog**: https://github.com/spatie/laravel-query-builder/compare/5.1.2...5.2.0
+
+## 5.1.2 - 2023-01-24
+
+### What's Changed
+
+- Update including-relationships.md by @designvoid in https://github.com/spatie/laravel-query-builder/pull/837
+- Fix workflow badges in README by @nelson6e65 in https://github.com/spatie/laravel-query-builder/pull/841
+- Laravel 10.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-query-builder/pull/842
+
+### New Contributors
+
+- @designvoid made their first contribution in https://github.com/spatie/laravel-query-builder/pull/837
+- @nelson6e65 made their first contribution in https://github.com/spatie/laravel-query-builder/pull/841
+- @laravel-shift made their first contribution in https://github.com/spatie/laravel-query-builder/pull/842
+
+**Full Changelog**: https://github.com/spatie/laravel-query-builder/compare/5.1.1...5.1.2
+
+## 5.1.1 - 2022-12-02
+
+### What's Changed
+
+- Fix `array_diff_assoc` BC break in v5.1.0 by @stevebauman in https://github.com/spatie/laravel-query-builder/pull/827
+
+### New Contributors
+
+- @stevebauman made their first contribution in https://github.com/spatie/laravel-query-builder/pull/827
+
+**Full Changelog**: https://github.com/spatie/laravel-query-builder/compare/5.1.0...5.1.1
+
 ## 4.0.4 - 2022-11-28
 
 ### What's Changed

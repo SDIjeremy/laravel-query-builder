@@ -7,7 +7,7 @@ The `sort` query parameter is used to determine by which property the results co
 
 All sorts have to be explicitly allowed by passing an array to the `allowedSorts()` method. The `allowedSorts` method takes an array of column names as strings or instances of `AllowedSorts`s.
 
-For more advanced use cases, [custom sorts](#custom-sorts) can be used.
+For more advanced use cases, [custom sorts](#content-custom-sorts) can be used.
 
 ## Basic usage
 
@@ -117,11 +117,11 @@ $users = QueryBuilder::for(User::class)
 To change the default direction of the a sort you can use `defaultDirection` :
 
 ```php
-$customSort = AllowedSort::custom('custom-sort', new SentSort())->defaultDirection('desc');
+$customSort = AllowedSort::custom('custom-sort', new SentSort())->defaultDirection(SortDirection::DESCENDING);
 
 $users = QueryBuilder::for(User::class)
             ->allowedSorts($customSort)
-            ->defaultSort($customSort)->defaultDirection(SortDirection::DESCENDING)
+            ->defaultSort($customSort)
             ->get();
 ```
 
